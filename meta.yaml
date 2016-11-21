@@ -1,0 +1,50 @@
+{% set version = "3.4.2" %}
+
+package:
+  name: pillow-ljpeg-turbo
+  version: {{ version }}
+
+source:
+  fn: Pillow-{{ version }}.tar.gz
+  url: https://github.com/python-pillow/Pillow/archive/{{ version }}.tar.gz
+  sha256: 0ee762ab924e004b7e69643b44e82cf65e0fa1f16862e11bd821950dbbc5f3d3
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - zlib 1.2.*
+    - libtiff-libjpeg-turbo 4.0.*
+    - libjpeg-turbo 1.5.1
+    - freetype 2.6.*
+    - tk 8.5.*
+  run:
+    - python
+    - libjpeg-turbo 1.5.1
+    - zlib 1.2.*
+    - freetype 2.6.*
+    - libtiff-libjpeg-turbo 4.0.*
+
+test:
+  imports:
+    - PIL
+    - PIL.Image
+  #commands:
+    #- conda inspect linkages -p $PREFIX pillow  # [not win]
+    #- conda inspect objects -p $PREFIX pillow  # [osx]
+
+about:
+  home: http://python-imaging.github.io/
+  license: Standard PIL license
+  summary: 'Pillow is the friendly PIL fork by Alex Clark and Contributors. This conda build is compiled with libjpeg-turbo'
+
+extra:
+  recipe-maintainers:
+    - jakirkham
+    - patricksnape
+    - pelson
+    - strets123
+    - ocefpaf

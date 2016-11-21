@@ -1,0 +1,43 @@
+# This file created by conda-build 1.21.14+0.g4dfebe9.dirty
+# meta.yaml template originally from:
+# /recipe_root, last modified Tue Oct 25 17:25:31 2016
+# ------------------------------------------------
+
+package:
+    name: pillow
+    version: 3.4.2
+source:
+    fn: Pillow-3.4.2.tar.gz
+    sha256: 0ee762ab924e004b7e69643b44e82cf65e0fa1f16862e11bd821950dbbc5f3d3
+    url: https://github.com/python-pillow/Pillow/archive/3.4.2.tar.gz
+build:
+    number: '0'
+requirements:
+    build:
+        - python
+        - setuptools
+        - zlib 1.2.*
+        - libtiff 4.0.*
+        - jpeg 9*
+        - freetype 2.6.*
+        - tk 8.5.*
+    run:
+        - python
+        - jpeg 9*
+        - zlib 1.2.*
+        - freetype 2.6.*
+        - libtiff 4.0.*
+test:
+    imports:
+        - PIL
+        - PIL.Image
+about:
+    home: http://python-imaging.github.io/
+    license: Standard PIL license
+    summary: Pillow is the friendly PIL fork by Alex Clark and Contributors.
+extra:
+    recipe-maintainers:
+        - jakirkham
+        - patricksnape
+        - pelson
+        - ocefpaf
